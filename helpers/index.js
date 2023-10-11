@@ -7,3 +7,7 @@ export const getLinks = () => {
 export const getItems = () => {
     return items;
 }
+
+export const getCategory = (category) => {
+    return items.map((item) => item.category === category)
+}

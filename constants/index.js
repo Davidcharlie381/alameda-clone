@@ -3,15 +3,15 @@ import loungeTunicL from "../public/assets/linen-tunic-L.jpg"
 
 export const items = [
   { name: "Linen Tunic", sale: true, sizes: [""], images: [loungeTunic, loungeTunicL], slug: "/linen-tuni" },
-  { name: "", sale: true, sizes: [""], images: [""], slug: "/" },
-  // { name: "", sale: true, sizes: [""], images: [""], slug: "/" },
-  // { name: "", sale: true, sizes: [""], images: [""], slug: "/" },
-  // { name: "", sale: true, sizes: [""], images: [""], slug: "/" },
-  // { name: "", sale: true, sizes: [""], images: [""], slug: "/" },
-  // { name: "", sale: true, sizes: [""], images: [""], slug: "/" },
-  // { name: "", sale: true, sizes: [""], images: [""], slug: "/" },
-  // { name: "", sale: true, sizes: [""], images: [""], slug: "/" },
-  // { name: "", sale: true, sizes: [""], images: [""], slug: "/" },
+  { name: "", sale: true, sizes: [""], images: [""], slug: "/", category: "" },
+  { name: "", sale: true, sizes: [""], images: [""], slug: "/", category: "" },
+  { name: "", sale: true, sizes: [""], images: [""], slug: "/", category: "" },
+  { name: "", sale: true, sizes: [""], images: [""], slug: "/", category: "" },
+  { name: "", sale: true, sizes: [""], images: [""], slug: "/", category: "" },
+  { name: "", sale: true, sizes: [""], images: [""], slug: "/", category: "" },
+  { name: "", sale: true, sizes: [""], images: [""], slug: "/", category: "" },
+  { name: "", sale: true, sizes: [""], images: [""], slug: "/", category: "" },
+  { name: "", sale: true, sizes: [""], images: [""], slug: "/", category: "" },
 ];
 
 export const links = [
@@ -20,3 +20,9 @@ export const links = [
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
+
+export const categories = [
+  {name: "Tops", path: "/tops", items: items.filter((item) => item.category === "tops")},
+  {name: "Bottoms", path: "/bottoms", items: items.filter((item) => item.category === "bottoms")},
+  {name: "Sale", path: "/sale", items: items.filter((item) => item.category === "sale")}
+]

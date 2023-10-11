@@ -2,6 +2,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 import { Inter, Roboto, Poppins } from "next/font/google";
+import { Provider } from "react-redux";
+import store from "@/redux/store";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -24,9 +26,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${roboto.variable}`}>
-        <Navbar />
-        {children}
-        <Footer />
+        {/* <Provider store={store}> */}
+          <Navbar />
+          {children}
+          <Footer />
+        {/* </Provider> */}
       </body>
     </html>
   );
