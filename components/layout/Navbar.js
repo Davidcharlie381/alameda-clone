@@ -3,6 +3,9 @@
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
 
 import { BsCart2 } from "react-icons/bs";
+import { BiLogoInstagram } from "react-icons/bi";
+import { BsTwitter } from "react-icons/bs";
+
 import Link from "next/link";
 import { getLinks } from "@/helpers";
 import Navlink from "../utils/Navlink";
@@ -39,7 +42,7 @@ const Navbar = () => {
       >
         <div className="w-1/5">
           <div
-            className="mobile lg:hidden grid place-content-center space-y-3 h-[35px] w-[35px] cursor-pointer"
+            className="mobile xl:hidden grid place-content-center space-y-3 h-[35px] w-[35px] cursor-pointer"
             onClick={toggleNav}
           >
             <div
@@ -53,17 +56,28 @@ const Navbar = () => {
               } transition-all duration-300`}
             />
           </div>
-          <div className="tablet-nav hidden lg:flex font-poppins gap-5">
+          <div className="tablet-nav hidden xl:flex font-poppins gap-5">
             {links.map(({ name, path }) => (
-              <Navlink name={name} path={path} className="text-base leading-4 font-light" />
+              <Navlink
+                name={name}
+                path={path}
+                className="text-base leading-4 font-light"
+              />
             ))}
           </div>
         </div>
-        <Link href="/" className="w-3/5 font-inter font-medium text-[26px] md:text-[32px] leading-9 text-center flex-1">
+        <Link
+          href="/"
+          className="w-3/5 font-inter font-medium text-[26px] md:text-[32px] leading-9 text-center flex-1"
+        >
           Alameda
         </Link>
         <div className="w-1/5 flex items-center justify-end gap-10">
-          <div className="hidden lg:block">icons socials</div>
+          <div className="hidden xl:flex justify-center gap-10">
+            <BiLogoInstagram className="h-[25px] w-[25px]" />
+            <BsTwitter className="h-[25px] w-[25px]" />
+          </div>
+
           <Link
             href="/cart"
             className="flex items-center gap-2 text-base cursor-pointer"

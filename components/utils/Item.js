@@ -13,9 +13,9 @@ const Item = () => {
         <Image
           src={image}
           alt="Image text"
-          className="w-full h-[570px] lg:h-[410px]"
+          className="w-full h-[480px] lg:h-[410px]"
         />
-        <h2 className="text-[22px] md:text-[26px] font-medium font-roboto leading-8 md:leading-9">
+        <h2 className="text-[22px] mt-3 md:text-[26px] font-medium font-roboto leading-8 md:leading-9">
           Lounge tuni
         </h2>
         <div className="flex justify-between items-center space-y-5">

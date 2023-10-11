@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .container {
-    @apply mx-auto w-[84vw] min-[575px]:w-[85vw] md:w-[88vw] max-w-[1440px];
+    @apply mx-auto w-[86vw] min-[575px]:w-[88vw] md:w-[90vw] max-w-[1440px];
 }

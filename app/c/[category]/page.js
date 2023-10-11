@@ -11,7 +11,7 @@ const Category = ({ params }) => {
       <section className="pt-14">
         <div className="flex gap-2 items-center min-[575px]:justify-center min-[575px]:mt-12">
           <Link href="/" className="text-base font-light">
-            All /
+            All / {category}
           </Link>
           
         </div>
