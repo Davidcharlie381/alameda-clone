@@ -37,9 +37,9 @@ const Navbar = () => {
         className="container flex justify-between py-6 md:py-9 lg:py-12 items-center z-10"
         ref={navRef}
       >
-        <div>
+        <div className="w-1/5">
           <div
-            className="mobile md:hidden grid place-content-center space-y-3 h-[35px] w-[35px] cursor-pointer"
+            className="mobile lg:hidden grid place-content-center space-y-3 h-[35px] w-[35px] cursor-pointer"
             onClick={toggleNav}
           >
             <div
@@ -53,17 +53,17 @@ const Navbar = () => {
               } transition-all duration-300`}
             />
           </div>
-          <div className="tablet-nav hidden md:flex font-poppins gap-5">
+          <div className="tablet-nav hidden lg:flex font-poppins gap-5">
             {links.map(({ name, path }) => (
-              <Navlink name={name} path={path} className="" />
+              <Navlink name={name} path={path} className="text-base leading-4 font-light" />
             ))}
           </div>
         </div>
-        <Link href="/" className="font-inter font-medium text-[26px] leading-9 text-center">
+        <Link href="/" className="w-3/5 font-inter font-medium text-[26px] md:text-[32px] leading-9 text-center flex-1">
           Alameda
         </Link>
-        <div className="flex items-center gap-10">
-          <div className="hidden md:block">icons socials</div>
+        <div className="w-1/5 flex items-center justify-end gap-10">
+          <div className="hidden lg:block">icons socials</div>
           <Link
             href="/cart"
             className="flex items-center gap-2 text-base cursor-pointer"
