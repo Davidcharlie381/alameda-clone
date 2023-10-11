@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Container from "@components/utils/Container"
 
 export const metadata = {
   title: "Create Next App",
@@ -8,13 +6,8 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main>
-      <Container>
-        <h2 className="text-center text-3xl font-700 font-roboto">
-          Alameda clone
-        </h2>
-        <p className="font-poppins">A clone of the popular akameda</p>
-      </Container>
+    <main className="container h-screen">
+      Home
     </main>
   );
 }

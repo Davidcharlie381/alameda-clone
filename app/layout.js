@@ -1,5 +1,5 @@
-import Navbar from "@/components/general/Navbar";
-import Footer from "@/components/general/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 import { Inter, Roboto, Poppins } from "next/font/google";
 
