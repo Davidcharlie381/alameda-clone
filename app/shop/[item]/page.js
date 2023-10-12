@@ -27,7 +27,7 @@ const ShopItem = ({ params }) => {
   const [qty, setQty] = useState(1);
   const [newSize, setNewSize] = useState(0)
   const [isAdding, setIsAdding] = useState(false);
-  const [btnState, setBtnState] = useState("Add to cart"):
+  const [btnState, setBtnState] = useState("Add to cart");
   
   const dispatch = useDispatch();
   const { item } = params;
