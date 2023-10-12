@@ -70,6 +70,7 @@ const cart = useSelector((state) => state.cart);
                 key={path}
                 name={name}
                 path={path}
+setNavOpen={setNavOpen}
                 className="text-base leading-4 font-light"
               />
             ))}
@@ -89,6 +90,7 @@ const cart = useSelector((state) => state.cart);
 
           <Link
             href="/cart"
+onClick={() => setNavOpen(false)}
             className="flex items-center gap-2 text-base cursor-pointer"
           >
             <BsCart2 className="h-[25px] w-[25px]" /> {getItemsCount()}
@@ -108,6 +110,7 @@ const cart = useSelector((state) => state.cart);
                   key={path}
                   name={name}
                   path={path}
+setNavOpen={setNavOpen}
                   className="text-4xl font-light font leading-9"
                 />
               </li>
