@@ -27,6 +27,7 @@ const ShopItem = ({ params }) => {
   const [qty, setQty] = useState(1);
   const [newSize, setNewSize] = useState(0)
   const [isAdding, setIsAdding] = useState(false);
+  const [btnState, setBtnState] = useState("Add to cart"):
   
   const dispatch = useDispatch();
   const { item } = params;
@@ -42,8 +43,14 @@ const ShopItem = ({ params }) => {
   const shopItem = getItem(shopItemSlug);
 
   const dispatchAsync = (func) => {
+    setIsAdding(true);
     setTimeout(() => {
-      dispatch(func)
+      dispatch(func);
+      setBtnState("Added!")
+      setTimeout(() => {
+        setBtnState("Add to cart");
+      }, 1000);
+      setIsAdding(false);
     }, 1000)
   }
 
@@ -131,7 +138,7 @@ onChange={(e) => setQty(e.target.value)}
                 onClick={() => dispatchAsync(addToCart(toBeAdded))}
                 className="bg-black/40 w-full py-5 text-white font-poppins font-medium"
               >
-                Add To Cart
+                  {isAdding ? "Adding..." : btnState}
               </button>
             </div>
             <div className="md:order-1 mb-10">
