@@ -18,7 +18,7 @@ https://alameda-clone.vercel.app
 https://alameda-fluid-demo.squarespace.com
 
 
-### Tech 
+### Tech stack
 
 - Redux (for global state management)
 - NextJS (React Framework)
