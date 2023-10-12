@@ -73,7 +73,7 @@ const ShopItem = ({ params }) => {
     name,
     slug,
     price,
-    // qty,
+    qty,
     images,
     newSize
   }
