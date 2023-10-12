@@ -84,7 +84,7 @@ const ShopItem = ({ params }) => {
             {name}
           </h2>
           <p className="text-[22px] leading-[31px] md:text-[31px] md:leading-[33px] mb-6">
-            $50.00
+            ${price.toFixed(2)}
           </p>
           <div className="flex flex-col">
             <div className="md:order-2">
