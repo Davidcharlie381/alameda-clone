@@ -121,7 +121,7 @@ required
     onChange={(e) => setNewSize(e.target.value)}
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 font-poppins py-5 border-[1px] border-gray-300 w-full bg-transparent"
                 >
-                  <option>Select size</option>
+                  <option value="">Select size</option>
                   {sizes.map((size) => (
                     <option key={size} value={size}>{size}</option>
                   ))}
