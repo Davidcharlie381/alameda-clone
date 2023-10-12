@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
+import {useSelector, useDispatch} from "react-redux"
 
 import { BsCart2 } from "react-icons/bs";
 import { BiLogoInstagram } from "react-icons/bi";
@@ -11,11 +12,18 @@ import { getLinks } from "@/helpers";
 import Navlink from "../utils/Navlink";
 
 const Navbar = () => {
+
+const cart = useSelector((state) => state.cart);
+
   const [navOpen, setNavOpen] = useState(false);
   const [navHeight, setNavHeight] = useState(0);
   const navRef = useRef(null);
 
   const links = getLinks();
+
+  const getItemsCount = () => {
+    return cart.reduce((acc, item) => acc + item.quantity, 0)
+  }
 
   useLayoutEffect(() => {
     const { height } = navRef.current.getBoundingClientRect();
@@ -83,7 +91,7 @@ const Navbar = () => {
             href="/cart"
             className="flex items-center gap-2 text-base cursor-pointer"
           >
-            <BsCart2 className="h-[25px] w-[25px]" /> 0
+            <BsCart2 className="h-[25px] w-[25px]" /> {getItemsCount()}
           </Link>
         </div>
       </nav>
