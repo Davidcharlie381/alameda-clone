@@ -45,7 +45,7 @@ const cart = useSelector((state) => state.cart);
   return (
     <header className="relative">
       <nav
-        className="container flex justify-between py-6 md:py-9 lg:py-12 items-center z-10"
+        className="container flex justify-between py-6 md:py-9 lg:py-12 items-center z-100"
         ref={navRef}
       >
         <div className="w-1/5">
@@ -100,7 +100,7 @@ onClick={() => setNavOpen(false)}
       </nav>
       {navOpen && (
         <aside
-          className={`fixed w-screen z-8 top-[${
+          className={`fixed w-screen z-99 top-[${
             navHeight + "px"
           }] h-screen bg-white flex justify-center`}
         >
