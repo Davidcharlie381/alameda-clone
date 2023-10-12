@@ -17,9 +17,9 @@ const CartItem = ({item}) => {
 
   const itemExist = useSelector((state) => state.cart.find((item) => item.slug === slug));
 
-  let {quantity} = itemExist;
+  let {qty} = itemExist;
 
-  let calculatedPrice = quantity * price;
+  let calculatedPrice = qty * price;
 
   return (
     <div className="mb-5 relative">
@@ -43,7 +43,7 @@ const CartItem = ({item}) => {
                 <AiOutlineMinus />
               </button>
 
-              <span className="mt-1 block">{quantity}</span>
+              <span className="mt-1 block">{qty}</span>
               <button className="rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatch(incrementQuantity(item))}>
                 <BsPlusLg />
               </button>

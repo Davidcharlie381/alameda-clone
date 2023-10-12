@@ -12,7 +12,7 @@ const Cart = () => {
   // console.log(cart);
 
   const getTotalPrice = () => {
-    return cart.reduce((acc, item) => acc + item.quantity * item.price, 0 )
+    return cart.reduce((acc, item) => acc + item.qty * item.price, 0 )
   }
 
   // console.log(getTotalPrice())

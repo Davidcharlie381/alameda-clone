@@ -8,6 +8,7 @@ import { categories } from "@/constants";
 import { getItem, getItems } from "@/helpers";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/cartSlice";
+import {useState} from "react";
 
 // export const generateStaticParams = () => {
 //   return [{ item: "page-one" }, { item: "page-two" }];
@@ -23,6 +24,10 @@ export function generateMetaData({ params }) {
 }
 
 const ShopItem = ({ params }) => {
+  const [qty, setQty] = useState(1);
+  const [newSize, setNewSize] = useState(0)
+  const [isAdding, setIsAdding] = useState(false);
+  
   const dispatch = useDispatch();
   const { item } = params;
 
@@ -51,6 +56,15 @@ const ShopItem = ({ params }) => {
     sale,
   } = shopItem;
 
+  const toBeAdded = {
+    name,
+    slug,
+    price,
+    // qty,
+    images,
+    newSize
+  }
+
   return (
     <main className="container pt-14 md:pt-20 ">
       <div className="hidden md:block text-base font-poppins leading-4 font-light">
@@ -70,7 +84,7 @@ const ShopItem = ({ params }) => {
             {name}
           </h2>
           <p className="text-[22px] leading-[31px] md:text-[31px] md:leading-[33px] mb-6">
-            $50.00
+            ${price.toFixed(2)}
           </p>
           <div className="flex flex-col">
             <div className="md:order-2">
@@ -83,11 +97,12 @@ const ShopItem = ({ params }) => {
                 </label>
                 <select
                   id="size"
+    onChange={(e) => setNewSize(e.target.value)}
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 font-poppins py-5 border-[1px] border-gray-300 w-full bg-transparent"
                 >
                   <option>Select size</option>
                   {sizes.map((size) => (
-                    <option key={size}>{size}</option>
+                    <option key={size} value={size}>{size}</option>
                   ))}
                 </select>
               </div>
@@ -101,12 +116,13 @@ const ShopItem = ({ params }) => {
                 <input
                   type="number"
                   id="qty"
-                  value={1}
+                  value={qty}
+onChange={(e) => setQty(e.target.value)}
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 py-5 border-[1px] max-w-sm border-gray-300 w-2/5 bg-transparent"
                 />
               </div>
               <button
-                onClick={() => dispatch(addToCart(shopItem))}
+                onClick={() => dispatch(addToCart(toBeAdded))}
                 className="bg-black/40 w-full py-5 text-white font-poppins font-medium"
               >
                 Add To Cart
