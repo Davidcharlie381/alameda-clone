@@ -41,6 +41,12 @@ const ShopItem = ({ params }) => {
 
   const shopItem = getItem(shopItemSlug);
 
+  const dispatchAsync = (func) => {
+    setTimeout(() => {
+      dispatch(func)
+    }, 1000)
+  }
+
   const [top, bottom, moreSale] = categories;
 
   const {
@@ -122,7 +128,7 @@ onChange={(e) => setQty(e.target.value)}
                 />
               </div>
               <button
-                onClick={() => dispatch(addToCart(toBeAdded))}
+                onClick={() => dispatchAsync(addToCart(toBeAdded))}
                 className="bg-black/40 w-full py-5 text-white font-poppins font-medium"
               >
                 Add To Cart
