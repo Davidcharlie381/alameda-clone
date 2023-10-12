@@ -106,6 +106,7 @@ const ShopItem = ({ params }) => {
           </p>
           <div className="flex flex-col">
             <div className="md:order-2">
+            <form onSubmit={(e) => handleSubmit(e)}>
               <div className="mt-6 mb-10">
                 <label
                   htmlFor="size"
@@ -113,7 +114,7 @@ const ShopItem = ({ params }) => {
                 >
                   Size:
                 </label>
-                  <form onSubmit={(e) => handleSubmit(e)}>
+                  
                 <select
                   id="size"
 required
