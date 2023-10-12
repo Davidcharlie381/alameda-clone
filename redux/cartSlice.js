@@ -9,14 +9,14 @@ const cartSlice = createSlice({
       if (item) {
         item.qty++;
       } else {
-        state.push({ ...action.payload, qty: 1 });
+        state.push({ ...action.payload, qty: action.payload.qty });
       }
     },
     incrementQuantity: (state, action) => {
       const item = state.find((item) => item.slug === action.payload.slug);
       item.qty++;
     },
-    incrementByQuantity: (state, action) => {},
+   // incrementByQuantity: (state, action) => {},
     decrementQuantity: (state, action) => {
       const item = state.find((item) => item.slug === action.payload.slug);
       if (item.qty === 1) {
