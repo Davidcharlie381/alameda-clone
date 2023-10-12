@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import CartItem from "@/components/utils/CartItem";
 import { useSelector } from "react-redux";
 
@@ -28,7 +29,9 @@ const Cart = () => {
               You have nothing in your shopping cart
             </p>
             <button className="mt-5 bg-black/40 px-8 py-5 text-white font-poppins font-medium">
+          <Link href="/">
               Continue Shopping
+          </Link>
             </button>
           </>
         ) : (
