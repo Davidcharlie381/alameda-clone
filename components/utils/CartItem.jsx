@@ -13,7 +13,7 @@ const CartItem = ({item}) => {
 
   const dispatch = useDispatch();
 
-  const { name, images, slug, price } = item;
+  const { name, images, slug, price, newSize } = item;
 
   const itemExist = useSelector((state) => state.cart.find((item) => item.slug === slug));
 
@@ -35,7 +35,7 @@ const CartItem = ({item}) => {
             <h3 className="font-roboto text-base font-base font-medium leading-[22px]">
               <Link href={`/shop${slug}`}>{name}</Link>
             </h3>
-            <span className="text-sm font-poppins font-light">Size: 2</span>
+            <span className="text-sm font-poppins font-light">Size: {newSize}</span>
           </div>
           <div className="flex justify-between md:justify-end gap-16 md:w-2/5">
             <div className="flex gap-3 ">
