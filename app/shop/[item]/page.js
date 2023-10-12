@@ -28,7 +28,7 @@ const ShopItem = ({ params }) => {
           />
         </div>
         <div className="md:col-span-3">
-          <h2 className="text-[32px] md:text-[38px] leading-[47px] md:leading-[53px] font-medium font-roboto mb-6">
+          <h2 className="text-[32px] md:text-[38px] leading-[47px] md:leading-[53px] font-medium font-robot mb-6">
             Product-name
           </h2>
           <p className="text-[22px] leading-[31px] md:text-[31px] md:leading-[33px] mb-6">
