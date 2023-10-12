@@ -26,7 +26,7 @@ const Footer = () => {
       >
         <input
           required
-          type="text"
+          type="email"
           placeholder="Email address"
           className="outline-0 focus:ring-2 ring-black ring-offset-2 px-8 py-5 border-[1px] font-poppins max-w-sm border-gray-300 w-full"
         />
