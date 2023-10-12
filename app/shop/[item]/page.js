@@ -24,7 +24,7 @@ export function generateMetaData({ params }) {
 }
 
 const ShopItem = ({ params }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const [newSize, setNewSize] = useState(0)
   const [isAdding, setIsAdding] = useState(false);
   
@@ -60,7 +60,7 @@ const ShopItem = ({ params }) => {
     name,
     slug,
     price,
-    qty,
+    // qty,
     images,
     newSize
   }
