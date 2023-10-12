@@ -31,7 +31,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [blueLinenL, blueLinen],
-    discount: 123,
+    
     sale: false,
   },
   {
@@ -43,7 +43,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [linenTunicL, linenTunic],
-    discount: 123,
+    discount: 76,
     sale: false,
   },
   {
@@ -55,7 +55,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [blueLinenCropL, blueLinenCrop],
-    discount: 123,
+    
     sale: true,
   },
   {
@@ -67,7 +67,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [chefShirtL, chefShirt],
-    discount: 123,
+    
     sale: false,
   },
   {
@@ -79,7 +79,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [cropTopL, cropTop],
-    discount: 123,
+    discount: 76,
     sale: false,
   },
   {
@@ -91,7 +91,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [kimemLongL, kimemLong],
-    discount: 123,
+   
     sale: true,
   },
   
@@ -104,7 +104,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [kimemRomyL, kimemRomy],
-    discount: 123,
+    
     sale: false,
   },
   {
@@ -116,7 +116,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [naturalDressL, naturalDress],
-    discount: 123,
+    discount: 93,
     sale: true,
   },
   {
@@ -128,7 +128,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [soniaSkirtL, soniaSkirt],
-    discount: 123,
+    
     sale: false,
   },
   {
@@ -140,7 +140,7 @@ export const items = [
     details: ["100% Cotton", "Machine wash cold", "Tumble dry low"],
     sizes: [0, 2, 4, 6, 8],
     images: [widePantL, widePant],
-    discount: 123,
+    // discount: 123,
     sale: true,
   },
   

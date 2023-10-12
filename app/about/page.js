@@ -1,6 +1,10 @@
 import Image from "next/image";
 import image from "../../public/assets/image-asset.jpeg";
 
+export const metadata = {
+title: "About"
+}
+
 const About = () => {
   return (
     <main className="container grid md:grid-cols-2 gap-10 md:gap-16 pt-14 md:pt-20 pb-20">

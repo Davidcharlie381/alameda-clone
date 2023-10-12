@@ -1,21 +1,27 @@
 import Item from "@/components/utils/Item";
 import Link from "next/link";
 
+import {notFound} from "next/navigation";
+
 import { categories } from "@/constants";
 
 const Category = ({ params }) => {
   const { category } = params;
+  const expected = ["tops", "bottoms", "sale"];
+  const [tops, bottoms, sale] = categories;
 
-  const [top, bottom, sale] = categories;
+  if (!expected.includes(category)) {
+    notFound();
+  }
 
   let items;
 
   switch (category) {
     case "tops":
-      items = top.items;
+      items = tops.items;
       break;
     case "bottoms":
-      items = bottom.items;
+      items = bottoms.items;
       break;
     case "sale":
       items = sale.items;

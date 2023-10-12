@@ -1,18 +1,38 @@
+"use client";
+
 import Image from "next/image";
-// import image from "../../../public/assets/linen-tunic.jpg";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Item from "../../../components/utils/Item";
 import { categories } from "@/constants";
-import { getItem } from "@/helpers";
+import { getItem, getItems } from "@/helpers";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/cartSlice";
 
-export const generateStaticParams = () => {
-  return [{ item: "page-one" }, { item: "page-two" }];
-};
+// export const generateStaticParams = () => {
+//   return [{ item: "page-one" }, { item: "page-two" }];
+// };
+
+export function generateMetaData({ params }) {
+  const { item } = params;
+  const currItem = getItems().find((item) => item.slug === "/" + item);
+  return {
+    title: "Item | " + currItem.name,
+    description: currItem.desc,
+  };
+}
 
 const ShopItem = ({ params }) => {
+  const dispatch = useDispatch();
   const { item } = params;
 
   let shopItemSlug = "/" + item;
+
+  const expected = getItems().map((item) => item.slug);
+
+  if (!expected.includes(("/" + item))) {
+    notFound();
+  }
 
   const shopItem = getItem(shopItemSlug);
 
@@ -66,7 +86,9 @@ const ShopItem = ({ params }) => {
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 font-poppins py-5 border-[1px] border-gray-300 w-full bg-transparent"
                 >
                   <option>Select size</option>
-                  {sizes.map((size) => <option key={size}>{size}</option>)}
+                  {sizes.map((size) => (
+                    <option key={size}>{size}</option>
+                  ))}
                 </select>
               </div>
               <div className="mb-10">
@@ -83,7 +105,10 @@ const ShopItem = ({ params }) => {
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 py-5 border-[1px] max-w-sm border-gray-300 w-2/5 bg-transparent"
                 />
               </div>
-              <button className="bg-black/40 w-full py-5 text-white font-poppins font-medium">
+              <button
+                onClick={() => dispatch(addToCart(shopItem))}
+                className="bg-black/40 w-full py-5 text-white font-poppins font-medium"
+              >
                 Add To Cart
               </button>
             </div>
@@ -98,7 +123,11 @@ const ShopItem = ({ params }) => {
                 DETAILS
               </h2>
               <ul className="list-disc space-y-3">
-                {details.map((detail, idx) => <li className="ml-9" key={idx}>{detail}</li>)}
+                {details.map((detail, idx) => (
+                  <li className="ml-9" key={idx}>
+                    {detail}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

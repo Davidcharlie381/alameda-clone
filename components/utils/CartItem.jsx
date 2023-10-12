@@ -1,39 +1,54 @@
+
+
 import { BsPlusLg, BsXLg } from "react-icons/bs";
 import { AiOutlineMinus } from "react-icons/ai";
 
 import Image from "next/image";
-import image from "../../public/assets/linen-tunic.jpg";
+// import image from "../../public/assets/linen-tunic.jpg";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { decrementQuantity, incrementQuantity, removeFromCart } from "@/redux/cartSlice";
 
-const CartItem = () => {
+const CartItem = ({item}) => {
+
+  const dispatch = useDispatch();
+
+  const { name, images, slug, price } = item;
+
+  const itemExist = useSelector((state) => state.cart.find((item) => item.slug === slug));
+
+  let {quantity} = itemExist;
+
+  let calculatedPrice = quantity * price;
+
   return (
     <div className="mb-5 relative">
-      <button className="absolute top-0 right-0 rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center">
+      <button className="absolute top-0 right-0 rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatch(removeFromCart(item))}>
         <BsXLg />
       </button>
       <div className="flex gap-5 mb-5">
         <div>
-          <Image src={image} className="h-28 w-24" alt="cart image" />
+          <Image src={images[1]} className="h-28 w-24" alt="cart image" />
         </div>
         <div className="flex flex-col md:flex-row gap-10 w-[85%] justify-between">
           <div>
             <h3 className="font-roboto text-base font-base font-medium leading-[22px]">
-              <Link href="#">Tunic fulen</Link>
+              <Link href={`/shop${slug}`}>{name}</Link>
             </h3>
             <span className="text-sm font-poppins font-light">Size: 2</span>
           </div>
           <div className="flex justify-between md:justify-end gap-16 md:w-2/5">
             <div className="flex gap-3 ">
-              <button className="rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center">
+              <button className="rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatch(decrementQuantity(item))}>
                 <AiOutlineMinus />
               </button>
 
-              <span className="mt-1 block">2</span>
-              <button className="rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center">
+              <span className="mt-1 block">{quantity}</span>
+              <button className="rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatch(incrementQuantity(item))}>
                 <BsPlusLg />
               </button>
             </div>
-            <div className="md:mt-1">$100.00</div>
+            <div className="md:mt-1">${calculatedPrice.toFixed(2)}</div>
           </div>
         </div>
       </div>
