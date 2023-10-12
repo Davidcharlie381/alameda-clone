@@ -108,6 +108,10 @@ const ShopItem = ({ params }) => {
                 >
                   Size:
                 </label>
+                  <form onSubmit={(e) => {
+                  e.preventDefault();
+                  dispatchAsync(addToCart(toBeAdded))
+                }>
                 <select
                   id="size"
 required
@@ -136,11 +140,12 @@ onChange={(e) => setQty(e.target.value)}
                 />
               </div>
               <button
-                onClick={() => dispatchAsync(addToCart(toBeAdded))}
+                type="submit"
                 className="bg-black/40 w-full py-5 text-white font-poppins font-medium"
               >
                   {isAdding ? "Adding..." : btnState}
               </button>
+                </form>
             </div>
             <div className="md:order-1 mb-10">
               <h2 className=" text-base font-mono leading-[29px] font-light py-4">
