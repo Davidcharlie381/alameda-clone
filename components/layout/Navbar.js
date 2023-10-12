@@ -22,7 +22,7 @@ const cart = useSelector((state) => state.cart);
   const links = getLinks();
 
   const getItemsCount = () => {
-    return cart.reduce((acc, item) => acc + item.quantity, 0)
+    return cart.reduce((acc, item) => acc + item.qty, 0)
   }
 
   useLayoutEffect(() => {
