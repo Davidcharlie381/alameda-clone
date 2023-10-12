@@ -54,6 +54,11 @@ const ShopItem = ({ params }) => {
     }, 1000)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatchAsync(addToCart(toBeAdded));
+  }
+
   const [top, bottom, moreSale] = categories;
 
   const {
@@ -108,11 +113,7 @@ const ShopItem = ({ params }) => {
                 >
                   Size:
                 </label>
-                  <form onSubmit={(e) => {
-                  e.preventDefault();
-                  dispatchAsync(addToCart(toBeAdded))
-                }
->
+                  <form onSubmit={(e) => handleSubmit(e)}>
                 <select
                   id="size"
 required
