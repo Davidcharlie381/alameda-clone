@@ -78,6 +78,7 @@ setNavOpen={setNavOpen}
         </div>
         <Link
           href="/"
+onClick={() => setNavOpen(false)}
           className="w-3/5 font-inter font-medium text-[26px] md:text-[32px] leading-9 text-center flex-1"
         >
           Alameda
