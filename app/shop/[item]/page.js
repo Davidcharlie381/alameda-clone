@@ -110,6 +110,7 @@ const ShopItem = ({ params }) => {
                 </label>
                 <select
                   id="size"
+required
     onChange={(e) => setNewSize(e.target.value)}
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 font-poppins py-5 border-[1px] border-gray-300 w-full bg-transparent"
                 >
