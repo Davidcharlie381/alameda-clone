@@ -6,7 +6,7 @@ const NotFound = () => {
 <div className="text-center">
     <h2 className="text-2xl font-semibold font-roboto mb-4">Uh oh!</h2>
     <p className="text-base font-poppins mb-6">You seem to be lost. Let's find you a way home.</p>
-    <Link href="/" className="text-gray-200 font-poppins text-sm">Return home</Link>
+    <Link href="/" className="text-gray-400 font-poppins text-sm underline">Return home</Link>
     </div>
 
     </main>
