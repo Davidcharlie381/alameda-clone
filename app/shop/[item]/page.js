@@ -111,7 +111,8 @@ const ShopItem = ({ params }) => {
                   <form onSubmit={(e) => {
                   e.preventDefault();
                   dispatchAsync(addToCart(toBeAdded))
-                }>
+                }
+>
                 <select
                   id="size"
 required
