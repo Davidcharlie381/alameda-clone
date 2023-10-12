@@ -1,7 +1,5 @@
 const Lookbook = () => {
-    return (
-    <main>Lookbook</main>
-    )
-}
+  return <main className="container">Lookbook coming soon</main>;
+};
 
 export default Lookbook;

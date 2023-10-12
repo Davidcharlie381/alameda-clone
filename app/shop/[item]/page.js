@@ -1,7 +1,9 @@
 import Image from "next/image";
-import image from "../../../public/assets/linen-tunic.jpg";
+// import image from "../../../public/assets/linen-tunic.jpg";
 import Link from "next/link";
 import Item from "../../../components/utils/Item";
+import { categories } from "@/constants";
+import { getItem } from "@/helpers";
 
 export const generateStaticParams = () => {
   return [{ item: "page-one" }, { item: "page-two" }];
@@ -10,8 +12,24 @@ export const generateStaticParams = () => {
 const ShopItem = ({ params }) => {
   const { item } = params;
 
-  // const item = getItem(item) {
-  // }
+  let shopItemSlug = "/" + item;
+
+  const shopItem = getItem(shopItemSlug);
+
+  const [top, bottom, moreSale] = categories;
+
+  const {
+    name,
+    slug,
+    category,
+    price,
+    desc,
+    details,
+    sizes,
+    images,
+    discount,
+    sale,
+  } = shopItem;
 
   return (
     <main className="container pt-14 md:pt-20 ">
@@ -22,14 +40,14 @@ const ShopItem = ({ params }) => {
         <div className="md:col-span-4 mb-6 md:flex gap-5">
           <div className="hidden md:block h-[70px] w-[50px] bg-gray-300 cursor-pointer"></div>
           <Image
-            src={image}
+            src={images[1]}
             alt="Image alt"
             className="h-[450px] md:h-[550px] lg:h-[600px] w-full"
           />
         </div>
         <div className="md:col-span-3">
           <h2 className="text-[32px] md:text-[38px] leading-[47px] md:leading-[53px] font-medium font-robot mb-6">
-            Product-name
+            {name}
           </h2>
           <p className="text-[22px] leading-[31px] md:text-[31px] md:leading-[33px] mb-6">
             $50.00
@@ -48,6 +66,7 @@ const ShopItem = ({ params }) => {
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 font-poppins py-5 border-[1px] border-gray-300 w-full bg-transparent"
                 >
                   <option>Select size</option>
+                  {sizes.map((size) => <option key={size}>{size}</option>)}
                 </select>
               </div>
               <div className="mb-10">
@@ -65,7 +84,7 @@ const ShopItem = ({ params }) => {
                 />
               </div>
               <button className="bg-black/40 w-full py-5 text-white font-poppins font-medium">
-                Sign Up
+                Add To Cart
               </button>
             </div>
             <div className="md:order-1 mb-10">
@@ -73,28 +92,34 @@ const ShopItem = ({ params }) => {
                 DESCRIPTION
               </h2>
               <p className="text-base font-poppins leading-[29px] font-light">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                {desc}
               </p>
               <h2 className=" text-base font-mono leading-[29px] font-light py-4">
                 DETAILS
               </h2>
               <ul className="list-disc space-y-3">
-                <li className="ml-9">Jump wnd wash</li>
-                <li className="ml-9">Use cold water only</li>
+                {details.map((detail, idx) => <li className="ml-9" key={idx}>{detail}</li>)}
               </ul>
             </div>
           </div>
         </div>
       </section>
       <section className="mt-12 md:mt-20 mb-7">
-        <h2 className="text-[32px] md:text-[38px] leading-[47px] md:leading-[53px] font-medium font-roboto mb-4">You Might Also Like</h2>
+        <h2 className="text-[32px] md:text-[38px] leading-[47px] md:leading-[53px] font-medium font-roboto mb-4">
+          You Might Also Like
+        </h2>
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 gap-y-20">
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          {bottom.items.map(({ name, slug, price, images, discount, sale }) => (
+            <Item
+              name={name}
+              image={images[1]}
+              slug={slug}
+              price={price}
+              discount={discount}
+              key={slug}
+              sale={sale}
+            />
+          ))}
         </div>
       </section>
     </main>

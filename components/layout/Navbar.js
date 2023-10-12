@@ -59,6 +59,7 @@ const Navbar = () => {
           <div className="tablet-nav hidden xl:flex font-poppins gap-5">
             {links.map(({ name, path }) => (
               <Navlink
+                key={path}
                 name={name}
                 path={path}
                 className="text-base leading-4 font-light"
@@ -96,9 +97,10 @@ const Navbar = () => {
             {links.map(({ name, path }) => (
               <li>
                 <Navlink
+                  key={path}
                   name={name}
                   path={path}
-                  className="text-4xl font-extralight font leading-9"
+                  className="text-4xl font-light font leading-9"
                 />
               </li>
             ))}

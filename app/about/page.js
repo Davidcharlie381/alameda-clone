@@ -7,7 +7,7 @@ const About = () => {
       <div>
         <Image src={image} className="w-full h-[300px] md:h-[500px]" />
         <h2 className="text-[22px] md:text-[26px] font-medium font-roboto mt-5 md:mt-7">
-          Made with love in a country
+          Made with love and tears in just two days
         </h2>
       </div>
       <div>
