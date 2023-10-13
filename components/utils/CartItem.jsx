@@ -1,4 +1,4 @@
-
+"use client"
 
 import { BsPlusLg, BsXLg } from "react-icons/bs";
 import { AiOutlineMinus } from "react-icons/ai";
