@@ -27,6 +27,7 @@ const ShopItem = ({ params }) => {
   const [qty, setQty] = useState(1);
   const [newSize, setNewSize] = useState(0)
   const [isAdding, setIsAdding] = useState(false);
+  const [btnState, setBtnState] = useState("Add to cart");
   
   const dispatch = useDispatch();
   const { item } = params;
@@ -40,6 +41,23 @@ const ShopItem = ({ params }) => {
   }
 
   const shopItem = getItem(shopItemSlug);
+
+  const dispatchAsync = (func) => {
+    setIsAdding(true);
+    setTimeout(() => {
+      dispatch(func);
+      setBtnState("Added!")
+      setTimeout(() => {
+        setBtnState("Add to cart");
+      }, 1000);
+      setIsAdding(false);
+    }, 1000)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatchAsync(addToCart(toBeAdded));
+  }
 
   const [top, bottom, moreSale] = categories;
 
@@ -60,7 +78,7 @@ const ShopItem = ({ params }) => {
     name,
     slug,
     price,
-    // qty,
+    qty,
     images,
     newSize
   }
@@ -88,6 +106,7 @@ const ShopItem = ({ params }) => {
           </p>
           <div className="flex flex-col">
             <div className="md:order-2">
+            <form onSubmit={(e) => handleSubmit(e)}>
               <div className="mt-6 mb-10">
                 <label
                   htmlFor="size"
@@ -95,12 +114,14 @@ const ShopItem = ({ params }) => {
                 >
                   Size:
                 </label>
+                  
                 <select
                   id="size"
+required
     onChange={(e) => setNewSize(e.target.value)}
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 font-poppins py-5 border-[1px] border-gray-300 w-full bg-transparent"
                 >
-                  <option>Select size</option>
+                  <option value="">Select size</option>
                   {sizes.map((size) => (
                     <option key={size} value={size}>{size}</option>
                   ))}
@@ -117,16 +138,18 @@ const ShopItem = ({ params }) => {
                   type="number"
                   id="qty"
                   value={qty}
+required
 onChange={(e) => setQty(e.target.value)}
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 py-5 border-[1px] max-w-sm border-gray-300 w-2/5 bg-transparent"
                 />
               </div>
               <button
-                onClick={() => dispatch(addToCart(toBeAdded))}
+                type="submit"
                 className="bg-black/40 w-full py-5 text-white font-poppins font-medium"
               >
-                Add To Cart
+                  {isAdding ? "Adding..." : btnState}
               </button>
+                </form>
             </div>
             <div className="md:order-1 mb-10">
               <h2 className=" text-base font-mono leading-[29px] font-light py-4">

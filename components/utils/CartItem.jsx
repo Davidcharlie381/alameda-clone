@@ -13,7 +13,13 @@ const CartItem = ({item}) => {
 
   const dispatch = useDispatch();
 
-  const { name, images, slug, price } = item;
+  const dispatchAsync = (func) => {
+    setTimeout(() => {
+      dispatch(func);
+    }, 1000)
+  }
+
+  const { name, images, slug, price, newSize } = item;
 
   const itemExist = useSelector((state) => state.cart.find((item) => item.slug === slug));
 
@@ -23,7 +29,7 @@ const CartItem = ({item}) => {
 
   return (
     <div className="mb-5 relative">
-      <button className="absolute top-0 right-0 rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatch(removeFromCart(item))}>
+      <button className="absolute top-0 right-0 rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatchAsync(removeFromCart(item))}>
         <BsXLg />
       </button>
       <div className="flex gap-5 mb-5">
@@ -35,16 +41,16 @@ const CartItem = ({item}) => {
             <h3 className="font-roboto text-base font-base font-medium leading-[22px]">
               <Link href={`/shop${slug}`}>{name}</Link>
             </h3>
-            <span className="text-sm font-poppins font-light">Size: 2</span>
+            <span className="text-sm font-poppins font-light">Size: {newSize}</span>
           </div>
           <div className="flex justify-between md:justify-end gap-16 md:w-2/5">
             <div className="flex gap-3 ">
-              <button className="rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatch(decrementQuantity(item))}>
+              <button className="rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatchAsync(decrementQuantity(item))}>
                 <AiOutlineMinus />
               </button>
 
               <span className="mt-1 block">{qty}</span>
-              <button className="rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatch(incrementQuantity(item))}>
+              <button disabled={qty === 1} className="rounded-full disabled:bg-gray-50 h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatchAsync(incrementQuantity(item))}>
                 <BsPlusLg />
               </button>
             </div>
