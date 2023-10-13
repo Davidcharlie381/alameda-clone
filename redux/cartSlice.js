@@ -10,16 +10,16 @@ const cartSlice = createSlice({
       const item = state.find((item) => item.slug === action.payload.slug);
       if (item) {
         item.qty++;
-        localStorage.set("cart", JSON.stringify(state));
+        localStorage.setItem("cart", JSON.stringify(state));
       } else {
         state.push({ ...action.payload, qty: action.payload.qty });
-        localStorage.set("cart", JSON.stringify(state));
+        localStorage.setItem("cart", JSON.stringify(state));
       }
     },
     incrementQuantity: (state, action) => {
       const item = state.find((item) => item.slug === action.payload.slug);
       item.qty++;
-      localStorage.set("cart", JSON.stringify(state));
+      localStorage.setItem("cart", JSON.stringify(state));
     },
    // incrementByQuantity: (state, action) => {},
     decrementQuantity: (state, action) => {
@@ -27,16 +27,16 @@ const cartSlice = createSlice({
       if (item.qty === 1) {
         const index = state.findIndex((item) => item.slug === action.payload);
         state.splice(index, 1);
-        localStorage.set("cart", JSON.stringify(state));
+        localStorage.setItem("cart", JSON.stringify(state));
       } else {
         item.qty--;
-        localStorage.set("cart", JSON.stringify(state));
+        localStorage.setItem("cart", JSON.stringify(state));
       }
     },
     removeFromCart: (state, action) => {
       const index = state.findIndex((item) => item.slug === action.payload);
       state.splice(index, 1);
-      localStorage.set("cart", JSON.stringify(state));
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });
