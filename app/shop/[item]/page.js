@@ -138,6 +138,7 @@ required
                   type="number"
                   id="qty"
                   value={qty}
+required
 onChange={(e) => setQty(e.target.value)}
                   className="block outline-0 focus:ring-2 ring-black ring-offset-2 px-5 py-5 border-[1px] max-w-sm border-gray-300 w-2/5 bg-transparent"
                 />
