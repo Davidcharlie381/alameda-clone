@@ -50,7 +50,7 @@ const CartItem = ({item}) => {
               </button>
 
               <span className="mt-1 block">{qty}</span>
-              <button className="rounded-full h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatchAsync(incrementQuantity(item))}>
+              <button disabled={qty === 1} className="rounded-full disabled:bg-gray-50 h-8 w-8 hover:bg-gray-200 grid place-content-center" onClick={() => dispatchAsync(incrementQuantity(item))}>
                 <BsPlusLg />
               </button>
             </div>
