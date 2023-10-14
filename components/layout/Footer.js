@@ -1,5 +1,7 @@
 "use client";
 
+// import Link from "next/link";
+
 import { BiLogoInstagram } from "react-icons/bi";
 import { BsTwitter } from "react-icons/bs";
 
@@ -34,7 +36,7 @@ const Footer = () => {
           Sign Up
         </button>
       </form>
-      <p className="font-poppins text-base pt-10 mb-10">Built by devcharlie</p>
+      <p className="font-poppins text-base pt-10 mb-10">Built by <a href="https://twitter.com/davidcharlie371" target="_blank" rel="noopener noreferrer" className="text-inherit">devcharlie</a></p>
     </footer>
   );
 };
